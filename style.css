@@ -76,7 +76,7 @@ body.dark-mode {
 }
 
 input:checked + .slider {
-  background-color: #4caf50;
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 input:checked + .slider::before {
