@@ -153,11 +153,7 @@ p {
 
 @media screen and (max-width: 600px) {
   .container {
-    padding-top: 25px;
-  }
-  
-  .switch {
-    top: -25px;
+    padding-top: 5px;
   }
 
   .logo img {
