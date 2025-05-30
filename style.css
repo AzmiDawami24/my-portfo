@@ -76,7 +76,7 @@ body.dark-mode {
 }
 
 input:checked + .slider {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.35);
 }
 
 input:checked + .slider::before {
@@ -154,6 +154,10 @@ p {
 @media screen and (max-width: 600px) {
   .container {
     padding-top: 25px;
+  }
+  
+  .switch {
+    top: -25px;
   }
 
   .logo img {
