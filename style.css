@@ -15,6 +15,10 @@ body.dark-mode {
   color: white;
 }
 
+body.dark-mode .links li a i {
+  color: white !important;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -142,6 +146,21 @@ p {
   display: inline-block;
   text-decoration: none;
 }
+
+.links li a i {
+  color: #222;
+  transition: color 0.3s;
+}
+
+.links li a .fa-github    { color: #232; }
+.links li a .fa-instagram { color: #C13584; }
+.links li a .fa-tiktok    { color: #333; }
+.links li a .fa-facebook  { color: #1877f2; }
+.links li a .fa-pinterest { color: #e60023; }
+.links li a .fa-spotify   { color: #1DB954; }
+.links li a .fa-discord   { color: #5865F2; }
+.links li a .fa-youtube   { color: #FF0000; }
+.links li a .fa-twitter   { color: #1da1f2; }
     
 .footer {
   position: fixed;
