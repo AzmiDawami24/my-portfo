@@ -28,3 +28,19 @@ setSpotifyTheme();
 checkbox.addEventListener('change', () => {
   setSpotifyTheme();
 });
+
+const discordIframe = document.getElementById("discord-embed");
+const setDiscordTheme = () => {
+  const isDark = body.classList.contains('dark-mode');
+  const themeParam = isDark ? "dark" : "light";
+  const userId = "722083917724647506";
+  discordIframe.src = `https://lanyard-profile-readme.vercel.app/api/${userId}?theme=${themeParam}`;
+};
+
+// Panggil saat awal load
+setDiscordTheme();
+
+// Update ketika toggle berubah
+checkbox.addEventListener('change', () => {
+  setDiscordTheme();
+});
