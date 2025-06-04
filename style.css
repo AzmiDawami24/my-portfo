@@ -134,6 +134,39 @@ h3 {
   border-radius: 50%;
 }
 
+.shop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px;
+  padding: 10px 20px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #222;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.shop:hover {
+  background-color: #dadada;
+}
+
+body.dark-mode .shop {
+  background-color: #222;
+  border-color: #fff;
+  color: #fff;
+}
+
+body.dark-mode .shop:hover {
+  background-color: #555;
+}
+
+
 .links {
   display: flex;
   flex-direction: column;
