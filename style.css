@@ -296,8 +296,7 @@ body.dark-mode .shop:hover {
     position: fixed;
     padding: 20px;
     transition: background-color 0.3s, border-color 0.3s;
-    top: 980px;
-    /* bottom: 20px; */
+    bottom: 20px;
     right: 20px;
     z-index: 1000;
   }
