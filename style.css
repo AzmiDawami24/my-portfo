@@ -7,6 +7,9 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: white;
   color: black;
   transition: background-color 0.3s, color 0.3s;
@@ -26,13 +29,12 @@ body.dark-mode .links li a i {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 80%;
   /* height: 100%; */
 }
 
 .btn-dark-mode {
   display: flex;
-  align-items: center;
   justify-content: center;
   align-items: center;
   background-color: #f0f0f0;
@@ -41,7 +43,7 @@ body.dark-mode .links li a i {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   position: fixed;
-  padding: 12px;
+  padding: 18px;
   transition: background-color 0.3s, border-color 0.3s;
   top: 20px;
   right: 20px;
@@ -91,18 +93,16 @@ body.dark-mode .links li a i {
   /* Tambahkan transisi untuk perubahan warna */
 }
 
-
-
-.btn-dark-mode button {
+/* .btn-dark-mode button {
   background-color: inherit;
   border: none;
   cursor: pointer;
   font-size: 24px;
   color: #222;
   transition: color 0.3s;
-}
+} */
 
-.darkModeToggle {
+#darkModeToggle {
   color: darkorange;
   transition: all 0.3s;
 }
@@ -165,7 +165,6 @@ body.dark-mode .shop:hover {
   background-color: #555;
 }
 
-
 .links {
   display: flex;
   flex-direction: column;
@@ -197,7 +196,7 @@ body.dark-mode .shop:hover {
 }
 
 .links li a .fa-instagram {
-  color: #C13584;
+  color: #c13584;
 }
 
 .links li a .fa-tiktok {
@@ -213,15 +212,15 @@ body.dark-mode .shop:hover {
 }
 
 .links li a .fa-spotify {
-  color: #1DB954;
+  color: #1db954;
 }
 
 .links li a .fa-discord {
-  color: #5865F2;
+  color: #5865f2;
 }
 
 .links li a .fa-youtube {
-  color: #FF0000;
+  color: #ff0000;
 }
 
 .links li a .fa-twitter {
@@ -284,6 +283,83 @@ body.dark-mode .shop:hover {
     padding-top: 5px;
   }
 
+  .btn-dark-mode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: 2px solid #222;
+    border-radius: 10%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: fixed;
+    padding: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+    top: 790px;
+    /* bottom: 20px; */
+    right: 20px;
+    z-index: 1000;
+  }
+
+  .btn-dark-mode:hover {
+    background-color: rgb(210, 210, 210);
+    border-color: #111;
+  }
+
+  .dark-mode .btn-dark-mode {
+    background-color: #444;
+    border-color: #333;
+  }
+
+  .dark-mode .btn-dark-mode:hover {
+    background-color: #555;
+    border-color: #444;
+  }
+
+  /* Gaya ikon di mode terang */
+  #themeIcon {
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    /* Warna default ikon adalah hitam */
+    transition: all 0.3s;
+    /* Tambahkan transisi untuk perubahan warna */
+  }
+
+  /* Gaya mode gelap */
+  .dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  /* Gaya ikon di mode gelap */
+  .dark-mode #themeIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: darkorange;
+    /* Warna ikon menjadi putih saat mode gelap aktif */
+    transition: all 0.3s;
+    /* Tambahkan transisi untuk perubahan warna */
+  }
+
+  .btn-dark-mode button {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #222;
+    transition: color 0.3s;
+  }
+
+  .darkModeToggle {
+    color: darkorange;
+    transition: all 0.3s;
+  }
+
   .logo img {
     width: 100px;
     height: 100px;
@@ -326,7 +402,7 @@ body.dark-mode .shop:hover {
     margin-top: -25px;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    max-width: 80%;
+    max-width: 60%;
     width: 100%;
     margin-bottom: -5px;
     text-align: center;
