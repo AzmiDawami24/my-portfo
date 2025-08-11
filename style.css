@@ -67,6 +67,7 @@ body.dark-mode .links li a i {
 
 /* Gaya ikon di mode terang */
 #themeIcon {
+  font-size: 1.5em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -294,9 +295,10 @@ body.dark-mode .shop:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     position: fixed;
-    padding: 20px;
+    padding: 20px 20px;
     transition: background-color 0.3s, border-color 0.3s;
-    bottom: 20px;
+    top: 80%;
+    bottom: 12%;
     right: 20px;
     z-index: 1000;
   }
@@ -345,14 +347,14 @@ body.dark-mode .shop:hover {
     /* Tambahkan transisi untuk perubahan warna */
   }
 
-  .btn-dark-mode button {
-    background-color: inherit;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: #222;
-    transition: color 0.3s;
-  }
+    /* .btn-dark-mode button {
+      background-color: inherit;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: #222;
+      transition: color 0.3s;
+    } */
 
   .darkModeToggle {
     color: darkorange;
@@ -398,10 +400,10 @@ body.dark-mode .shop:hover {
 
   .playlist-container {
     background-color: inherit;
-    margin-top: -25px;
+    margin-top: 15px;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    max-width: 60%;
+    max-width: 75%;
     width: 100%;
     margin-bottom: -5px;
     text-align: center;
