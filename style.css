@@ -30,7 +30,6 @@ body.dark-mode .links li a i {
   align-items: center;
   justify-content: space-between;
   width: 80%;
-  /* height: 100%; */
 }
 
 .btn-dark-mode {
@@ -65,43 +64,27 @@ body.dark-mode .links li a i {
   border-color: #444;
 }
 
-/* Gaya ikon di mode terang */
 #themeIcon {
   font-size: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: black;
-  /* Warna default ikon adalah hitam */
   transition: all 0.3s;
-  /* Tambahkan transisi untuk perubahan warna */
 }
 
-/* Gaya mode gelap */
 .dark-mode {
   background-color: #121212;
   color: #e0e0e0;
 }
 
-/* Gaya ikon di mode gelap */
 .dark-mode #themeIcon {
   display: flex;
   align-items: center;
   justify-content: center;
   color: darkorange;
-  /* Warna ikon menjadi putih saat mode gelap aktif */
   transition: all 0.3s;
-  /* Tambahkan transisi untuk perubahan warna */
 }
-
-/* .btn-dark-mode button {
-  background-color: inherit;
-  border: none;
-  cursor: pointer;
-  font-size: 24px;
-  color: #222;
-  transition: color 0.3s;
-} */
 
 #darkModeToggle {
   color: darkorange;
@@ -161,6 +144,7 @@ body.dark-mode .links li a i {
 
 .dark-mode .email-button a:hover {
   background-color: #555;
+  border-color: #444;
 }
 
 p {
