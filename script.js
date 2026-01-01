@@ -58,3 +58,9 @@ darkModeToggle.addEventListener('click', () => {
   setDiscordTheme();
   setSpotifyTheme();
 });
+
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+
+const yearElementText = document.getElementById('currentYear');
+yearElementText.textContent = currentYear;

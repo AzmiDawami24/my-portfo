@@ -274,9 +274,9 @@ body.dark-mode .shop:hover {
   justify-content: center;
   margin-top: -15px;
   margin-bottom: 2px;
-  max-width: max-content;
+  max-width: 40%;
   height: 100%;
-  width: 80%;
+  width: 100%;
 }
 
 .discord-activities iframe {
@@ -318,7 +318,7 @@ body.dark-mode .shop:hover {
   padding: 10px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .container {
     padding-top: 5px;
   }
@@ -357,6 +357,7 @@ body.dark-mode .shop:hover {
   }
 
   .discord-activities {
+    width: 90%;
     margin-bottom: -12px;
   }
 
@@ -365,7 +366,7 @@ body.dark-mode .shop:hover {
     margin-top: 15px;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    max-width: 75%;
+    max-width: 100%;
     width: 100%;
     margin-bottom: -5px;
     text-align: center;
