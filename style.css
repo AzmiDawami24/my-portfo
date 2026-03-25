@@ -357,7 +357,7 @@ body.dark-mode .shop:hover {
   }
 
   .discord-activities {
-    width: 90%;
+    max-width: 90%;
     margin-bottom: -12px;
   }
 
