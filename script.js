@@ -59,6 +59,7 @@ darkModeToggle.addEventListener('click', () => {
   setSpotifyTheme();
 });
 
+// Fungsi Footer Tahun 
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
