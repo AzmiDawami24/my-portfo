@@ -1,395 +1,279 @@
-* {
-  font-family: Arial, Helvetica, sans-serif;
+/* ==========================================================================
+   1. RESET & BASE STYLES (Pendekatan Mobile-First Default)
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  max-width: 100%;
-  overflow-x: hidden;
 }
 
 body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #121212;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  color: black;
-  transition: background-color 0.3s, color 0.3s;
+  justify-content: center;
 }
 
-body.dark-mode {
-  background-color: #121212;
-  color: white;
-}
-
-body.dark-mode .links li a i {
-  color: white !important;
-}
-
+/* Container Terpusat untuk Mobile */
 .container {
+  width: 100%;
+  max-width: 480px; /* Batas lebar ideal tampilan Linktree di desktop */
+  padding: 24px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  width: 80%;
+  gap: 20px;
 }
 
-.btn-dark-mode {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
-  border: 2px solid #222;
-  border-radius: 10%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  position: fixed;
-  padding: 18px;
-  transition: background-color 0.3s, border-color 0.3s;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-
-.btn-dark-mode:hover {
-  background-color: rgb(210, 210, 210);
-  border-color: #111;
-}
-
-.dark-mode .btn-dark-mode {
-  background-color: #444;
-  border-color: #333;
-}
-
-.dark-mode .btn-dark-mode:hover {
-  background-color: #555;
-  border-color: #444;
-}
-
-#themeIcon {
-  font-size: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-  transition: all 0.3s;
-}
-
-.dark-mode {
+/* ==========================================================================
+   2. TEMA MODE GELAP (Dark Mode)
+   ========================================================================== */
+body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
 }
 
-.dark-mode #themeIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+body.dark-mode #themeIcon {
   color: darkorange;
-  transition: all 0.3s;
 }
 
-#darkModeToggle {
-  color: darkorange;
-  transition: all 0.3s;
-}
-
-.email-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
-  border-radius: 10%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+/* ==========================================================================
+   3. TOMBOL MELAYANG (Floating Action Buttons)
+   ========================================================================== */
+.floating-buttons {
   position: fixed;
-  transition: background-color 0.3s, border-color 0.3s;
-  bottom: 100px;
+  bottom: 20px;
   right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   z-index: 1000;
 }
 
-.email-button a {
+.action-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
+  width: 50px;
+  height: 50px;
   background-color: #f0f0f0;
-  border: 2px solid #222;
-  border-radius: 10%;
-  padding: 18px;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-#emailIcon {
-  color: #222;
-  transition: all 0.3s;
-}
-
-.dark-mode #emailIcon {
-  font-size: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #f0f0f0;
-  transition: all 0.3s;
-}
-
-.email-button a:hover {
-  background-color: rgb(210, 210, 210);
-  border-color: #111;
-}
-
-.dark-mode .email-button a {
-  background-color: #444;
-  border-color: #333;
-}
-
-.dark-mode .email-button a:hover {
-  background-color: #555;
-  border-color: #444;
-}
-
-h1 {
-  font-size: 1,6em;
-}
-
-.name {
-  color: #afbaff;
-  text-decoration: underline;
-}
-
-p {
-  font-size: 1.2em;
-  margin: 20px;
-}
-
-h3 {
+  border: 2px solid #222222;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  text-decoration: none;
   font-size: 22px;
-  margin: 20px;
+  color: #222222;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
-.logo {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.action-btn:hover {
+  transform: translateY(-2px);
+  background-color: #e0e0e0;
+}
+
+body.dark-mode .action-btn {
+  background-color: #2a2a2a;
+  border-color: #444444;
+  color: #ffffff;
+}
+
+body.dark-mode .action-btn:hover {
+  background-color: #383838;
+}
+
+/* ==========================================================================
+   4. HEADER PROFIL & LOGO
+   ========================================================================== */
+.profile-header {
+  text-align: center;
 }
 
 .logo img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
+  background-color: #000000; /* Memberikan latar belakang agar garis putih logo transparan tetap terlihat */
+  padding: 6px;
+  margin-bottom: 12px;
 }
 
-.shop {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin: 20px;
-  padding: 10px 20px;
-  border: 2px solid #000;
-  border-radius: 8px;
-  background-color: #fff;
-  color: #222;
-  text-decoration: none;
-  font-size: 1em;
+h1 {
+  font-size: 1.4em;
   font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
 }
 
-.shop:hover {
-  background-color: #dadada;
+.name {
+  color: #6c7eff;
+  text-decoration: underline;
 }
 
-body.dark-mode .shop {
-  background-color: #222;
-  border-color: #fff;
-  color: #fff;
+body.dark-mode .name {
+  color: #afbaff;
 }
 
-body.dark-mode .shop:hover {
-  background-color: #555;
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  list-style-type: none;
-  text-decoration: none;
-}
-
-.links li {
-  display: inline-block;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-}
-
-.links li a {
-  display: inline-block;
-  text-decoration: none;
-}
-
-.links li a i {
-  color: #222;
-  transition: color 0.3s;
-}
-
-.links li a .fa-github {
-  color: #232;
-}
-
-.links li a .fa-instagram {
-  color: #c13584;
-}
-
-.links li a .fa-tiktok {
-  color: #333;
-}
-
-.links li a .fa-facebook {
-  color: #1877f2;
-}
-
-.links li a .fa-pinterest {
-  color: #e60023;
-}
-
-.links li a .fa-spotify {
-  color: #1db954;
-}
-
-.links li a .fa-discord {
-  color: #5865f2;
-}
-
-.links li a .fa-youtube {
-  color: #ff0000;
-}
-
-.links li a .fa-twitter {
-  color: #1da1f2;
-}
-
-.discord-activities {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: -15px;
-  margin-bottom: 2px;
-  max-width: 40%;
-  height: 100%;
+/* ==========================================================================
+   5. SEKSI UTAMA & TOMBOL
+   ========================================================================== */
+.section {
   width: 100%;
-}
-
-.discord-activities iframe {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  height: 225px;
-}
-
-.playlist-container {
-  background-color: inherit;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  max-width: 40%;
-  width: 100%;
-  margin-top: -35px;
-  margin-bottom: -5px;
   text-align: center;
 }
 
-.playlist-container h3 {
-  margin: 20px 16px;
-  font-size: 1em;
+h2 {
+  font-size: 1.1em;
+  margin-bottom: 12px;
 }
 
-.playlist-container iframe {
-  border-radius: 12px;
-  width: inherit;
-  height: 380px;
+/* Tombol Toko */
+.shop-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 280px;
+  padding: 12px 20px;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #222222;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.shop-btn:hover {
+  background-color: #f0f0f0;
+}
+
+body.dark-mode .shop-btn {
+  background-color: #222222;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+body.dark-mode .shop-btn:hover {
+  background-color: #333333;
+}
+
+/* Tautan Media Sosial */
+.social-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.15);
+}
+
+/* Warna Asli Brand Ikon Sosial Media */
+.fa-spotify { color: #1db954; }
+.fa-github { color: #333333; }
+.fa-discord { color: #5865f2; }
+.fa-instagram { color: #c13584; }
+.fa-tiktok { color: #000000; }
+.fa-twitter { color: #1da1f2; }
+.fa-facebook { color: #1877f2; }
+.fa-pinterest { color: #e60023; }
+.fa-youtube { color: #ff0000; }
+
+/* Penyesuaian Ikon Gelap di Dark Mode */
+body.dark-mode .fa-github,
+body.dark-mode .fa-tiktok {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   6. EMBED WIDGET (DISCORD & SPOTIFY)
+   ========================================================================== */
+.embed-card {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+body.dark-mode .embed-card {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.embed-card iframe {
+  width: 100%;
   border: none;
+  border-radius: 12px;
+}
+
+#discord-embed {
+  height: 220px;
+}
+
+#spotify-embed {
+  height: 380px;
+}
+
+/* ==========================================================================
+   7. SAWWERIA & FOOTER
+   ========================================================================== */
+.saweria {
+  font-size: 0.95em;
+  text-align: center;
+}
+
+.saweria a {
+  color: #ff8c00;
+  font-weight: bold;
 }
 
 .footer {
-  position: relative;
-  bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 10px;
+  padding-top: 10px;
+  font-size: 0.85em;
   color: darkslategray;
 }
 
-@media screen and (max-width: 640px) {
+body.dark-mode .footer {
+  color: #888888;
+}
+
+/* ==========================================================================
+   8. MEDIA QUERIES (Optimasi Tampilan Layar Besar)
+   ========================================================================== */
+@media screen and (min-width: 600px) {
   .container {
-    padding-top: 5px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .logo img {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
   }
 
   h1 {
-    font-size: 1.5em;
+    font-size: 1.8em;
   }
 
-  .name {
-    color: #afbaff;
-    text-decoration: underline;
-  }
-
-  p {
-    font-size: 1em;
-    margin: 10px;
-  }
-
-  h3 {
-    font-size: 18px;
-    margin: 20px;
-  }
-
-  .links ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .links li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-  }
-
-  .links a {
-    padding: 6px 12px;
-    font-size: 0.9em;
-  }
-
-  .discord-activities {
-    max-width: 90%;
-    margin-bottom: -36px;
-  }
-
-  .playlist-container {
-    background-color: inherit;
-    margin-top: 15px;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    max-width: 100%;
-    width: 100%;
-    margin-bottom: -5px;
-    text-align: center;
+  .floating-buttons {
+    bottom: 30px;
+    right: 30px;
   }
 }

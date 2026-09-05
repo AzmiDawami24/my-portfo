@@ -1,67 +1,71 @@
-// script.js
+// ==========================================================================
+// CONFIGURATION & CONSTANTS
+// ==========================================================================
+const CONFIG = {
+  USER_ID: "722083917724647506",
+  SPOTIFY_PLAYLIST_ID: "0nZis5ePycLlX70IrDIX6o"
+};
+
+// ==========================================================================
+// DOM ELEMENTS
+// ==========================================================================
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
 const themeIcon = document.getElementById('themeIcon');
-const discordIframe = document.getElementById("discord-embed");
-const spotifyIframe = document.getElementById("spotify-embed");
+const discordIframe = document.getElementById('discord-embed');
+const spotifyIframe = document.getElementById('spotify-embed');
+const currentYearText = document.getElementById('currentYear');
 
-// Periksa preferensi mode gelap dari localStorage
-const isDarkMode = localStorage.getItem('darkMode') === 'true';
+// ==========================================================================
+// THEME MANAGEMENT
+// ==========================================================================
 
-// Terapkan mode gelap dan ikon yang sesuai jika preferensi tersimpan
-if (isDarkMode) {
-  body.classList.add('dark-mode');
-  themeIcon.classList.replace('fa-moon', 'fa-sun');
-} else {
-  themeIcon.classList.replace('fa-sun', 'fa-moon');
-}
+/**
+ * Memperbarui URL widget Discord dan Spotify berdasarkan tema saat ini
+ * @param {boolean} isDark - Status mode gelap
+ */
+const updateEmbedThemes = (isDark) => {
+  const discordTheme = isDark ? "dark" : "light";
+  const spotifyTheme = isDark ? "0" : "1";
 
-// Fungsi untuk mengatur tema Discord
-const setDiscordTheme = () => {
-  const isDark = body.classList.contains('dark-mode');
-  const themeParam = isDark ? "dark" : "light";
-  const userId = "722083917724647506";
-  discordIframe.src = `https://lanyard-profile-readme.vercel.app/api/${userId}?theme=${themeParam}`;
+  discordIframe.src = `https://lanyard-profile-readme.vercel.app/api/${CONFIG.USER_ID}?theme=${discordTheme}`;
+  spotifyIframe.src = `https://open.spotify.com/embed/playlist/${CONFIG.SPOTIFY_PLAYLIST_ID}?utm_source=generator&theme=${spotifyTheme}`;
 };
 
-// Fungsi untuk mengatur tema Spotify
-const setSpotifyTheme = () => {
-  const isDark = body.classList.contains('dark-mode');
-  const themeParam = isDark ? "0" : "1";
-  const playlistId = "0nZis5ePycLlX70IrDIX6o";
-  spotifyIframe.src = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=${themeParam}`;
-};
-
-// Panggil fungsi-fungsi ini di awal untuk mengatur tema saat halaman dimuat
-setDiscordTheme();
-setSpotifyTheme();
-
-// Tambahkan "event listener" pada tombol
-darkModeToggle.addEventListener('click', () => {
-  // Toggle kelas 'dark-mode' pada body
-  body.classList.toggle('dark-mode');
-
-  // Cek apakah mode gelap sedang aktif
-  const isCurrentlyDarkMode = body.classList.contains('dark-mode');
-  
-  if (isCurrentlyDarkMode) {
-    // Jika mode gelap aktif, ganti ikon menjadi matahari
+/**
+ * Mengatur tema aplikasi (Dark/Light)
+ * @param {boolean} isDark - Status mode gelap
+ */
+const setTheme = (isDark) => {
+  if (isDark) {
+    body.classList.add('dark-mode');
     themeIcon.classList.replace('fa-moon', 'fa-sun');
-    localStorage.setItem('darkMode', 'true');
   } else {
-    // Jika mode terang aktif, ganti ikon menjadi bulan
+    body.classList.remove('dark-mode');
     themeIcon.classList.replace('fa-sun', 'fa-moon');
-    localStorage.setItem('darkMode', 'false');
   }
 
-  // Panggil fungsi-fungsi ini setiap kali tema berubah
-  setDiscordTheme();
-  setSpotifyTheme();
-});
+  localStorage.setItem('darkMode', isDark.toString());
+  updateEmbedThemes(isDark);
+};
 
-// Fungsi Footer Tahun 
-const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
+// ==========================================================================
+// INITIALIZATION
+// ==========================================================================
+const init = () => {
+  // 1. Cek preferensi tersimpan di LocalStorage
+  const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+  setTheme(savedDarkMode);
 
-const yearElementText = document.getElementById('currentYear');
-yearElementText.textContent = currentYear;
+  // 2. Set tahun footer secara otomatis
+  currentYearText.textContent = new Date().getFullYear();
+
+  // 3. Event Listener untuk tombol Dark Mode
+  darkModeToggle.addEventListener('click', () => {
+    const isCurrentlyDark = body.classList.contains('dark-mode');
+    setTheme(!isCurrentlyDark);
+  });
+};
+
+// Jalankan inisialisasi saat script dimuat
+init();
