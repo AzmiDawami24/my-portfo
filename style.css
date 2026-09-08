@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET & BASE STYLES (Pendekatan Mobile-First Default)
+   1. RESET & BASE STYLES
    ========================================================================== */
 *,
 *::before,
@@ -19,10 +19,9 @@ body {
   justify-content: center;
 }
 
-/* Container Terpusat untuk Mobile */
 .container {
   width: 100%;
-  max-width: 480px; /* Batas lebar ideal tampilan Linktree di desktop */
+  max-width: 480px;
   padding: 24px 16px;
   display: flex;
   flex-direction: column;
@@ -31,7 +30,7 @@ body {
 }
 
 /* ==========================================================================
-   2. TEMA MODE GELAP (Dark Mode)
+   2. TEMA MODE GELAP (Dark Mode Base)
    ========================================================================== */
 body.dark-mode {
   background-color: #121212;
@@ -98,7 +97,7 @@ body.dark-mode .action-btn:hover {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background-color: #000000; /* Memberikan latar belakang agar garis putih logo transparan tetap terlihat */
+  background-color: #000000;
   padding: 6px;
   margin-bottom: 12px;
 }
@@ -110,15 +109,14 @@ h1 {
 
 .name {
   color: #6c7eff;
-  text-decoration: underline;
 }
 
 body.dark-mode .name {
-  color: #afbaff;
+  color: #7082fa;
 }
 
 /* ==========================================================================
-   5. SEKSI UTAMA & TOMBOL
+   5. SEKSI UTAMA
    ========================================================================== */
 .section {
   width: 100%;
@@ -127,10 +125,249 @@ body.dark-mode .name {
 
 h2 {
   font-size: 1.1em;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-/* Tombol Toko */
+/* ==========================================================================
+   6. PROJECT CARD COMPONENT (DARK MODE DEFAULT)
+   ========================================================================== */
+.project-card {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  background-color: #121418;
+  border: 1px solid #22262f;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #e5e7eb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-4px);
+}
+
+.card-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: #0b0c0e;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #1f242d;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .preview-img {
+  transform: scale(1.03);
+}
+
+.badge-in-progress {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background-color: rgba(18, 20, 24, 0.85);
+  border: 1px solid #2d323e;
+  border-radius: 20px;
+  color: #f59e0b;
+  font-size: 0.75rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #f59e0b;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.category-year {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.external-link {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.external-link:hover {
+  color: #3b82f6;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  background-color: #1a1d24;
+  color: #9ca3af;
+  border: 1px solid #2d323e;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Memastikan kursor dilarang tetap muncul di pembungkusnya saat hover */
+.card-action {
+  width: 100%;
+  cursor: not-allowed;
+}
+
+.project-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  background-color: #161a22;
+  border: 1px solid #2a303c;
+  border-radius: 8px;
+  color: #3b82f6; /* Warna biru terang saat Dark Mode */
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.project-btn:hover {
+  cursor: not-allowed;
+  opacity: 0.6; /* Membuat tombol agak samar agar terkesan tidak aktif */
+  background-color: #161a22; /* Menjaga warna background tidak berubah terang */
+  border-color: #2a303c;
+}
+
+/* Aturan tombol nonaktif */
+.project-btn.disabled {
+  pointer-events: none; /* Mematikan semua aksi klik/sentuhan */
+  cursor: not-allowed;  /* Menampilkan ikon dilarang */
+  opacity: 0.6;         /* Membuat tampilan agak redup */
+}
+
+/* ==========================================================================
+   7. PROJECT CARD LIGHT MODE STYLES
+   ========================================================================== */
+body:not(.dark-mode) .project-card {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+  color: #1f2937;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body:not(.dark-mode) .project-card:hover {
+  border-color: #2563eb;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+body:not(.dark-mode) .card-preview {
+  background-color: #f3f4f6;
+  border-bottom-color: #e5e7eb;
+}
+
+body:not(.dark-mode) .card-title {
+  color: #111827;
+}
+
+body:not(.dark-mode) .category-year,
+body:not(.dark-mode) .card-description,
+body:not(.dark-mode) .external-link {
+  color: #6b7280;
+}
+
+body:not(.dark-mode) .external-link:hover {
+  color: #2563eb;
+}
+
+body:not(.dark-mode) .tag {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-color: #e5e7eb;
+}
+
+body:not(.dark-mode) .project-btn {
+  background-color: #f3f4f6;
+  border-color: #e5e7eb;
+  color: #2563eb; /* Warna biru saat Light Mode */
+}
+
+/* Untuk Mode Terang (Light Mode) */
+body:not(.dark-mode) .project-btn:hover {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+body:not(.dark-mode) .badge-in-progress {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: #fde68a;
+  color: #d97706;
+}
+
+body:not(.dark-mode) .badge-dot {
+  background-color: #d97706;
+}
+
+/* ==========================================================================
+   8. TOMBOL TOKO & SOSIAL MEDIA
+   ========================================================================== */
 .shop-btn {
   display: inline-flex;
   align-items: center;
@@ -162,13 +399,12 @@ body.dark-mode .shop-btn:hover {
   background-color: #333333;
 }
 
-/* Tautan Media Sosial */
 .social-links {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 .social-links a {
@@ -183,7 +419,6 @@ body.dark-mode .shop-btn:hover {
   transform: scale(1.15);
 }
 
-/* Warna Asli Brand Ikon Sosial Media */
 .fa-spotify { color: #1db954; }
 .fa-github { color: #333333; }
 .fa-discord { color: #5865f2; }
@@ -194,14 +429,13 @@ body.dark-mode .shop-btn:hover {
 .fa-pinterest { color: #e60023; }
 .fa-youtube { color: #ff0000; }
 
-/* Penyesuaian Ikon Gelap di Dark Mode */
 body.dark-mode .fa-github,
 body.dark-mode .fa-tiktok {
   color: #ffffff;
 }
 
 /* ==========================================================================
-   6. EMBED WIDGET (DISCORD & SPOTIFY)
+   9. EMBED WIDGET (DISCORD & SPOTIFY)
    ========================================================================== */
 .embed-card {
   width: 100%;
@@ -230,7 +464,7 @@ body.dark-mode .embed-card {
 }
 
 /* ==========================================================================
-   7. SAWWERIA & FOOTER
+   10. SAWERIA & FOOTER
    ========================================================================== */
 .saweria {
   font-size: 0.95em;
@@ -255,7 +489,7 @@ body.dark-mode .footer {
 }
 
 /* ==========================================================================
-   8. MEDIA QUERIES (Optimasi Tampilan Layar Besar)
+   11. MEDIA QUERIES
    ========================================================================== */
 @media screen and (min-width: 600px) {
   .container {

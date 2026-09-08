@@ -28,8 +28,13 @@ const updateEmbedThemes = (isDark) => {
   const discordTheme = isDark ? "dark" : "light";
   const spotifyTheme = isDark ? "0" : "1";
 
-  discordIframe.src = `https://lanyard-profile-readme.vercel.app/api/${CONFIG.USER_ID}?theme=${discordTheme}`;
-  spotifyIframe.src = `https://open.spotify.com/embed/playlist/${CONFIG.SPOTIFY_PLAYLIST_ID}?utm_source=generator&theme=${spotifyTheme}`;
+  if (discordIframe) {
+    discordIframe.src = `https://lanyard-profile-readme.vercel.app/api/${CONFIG.USER_ID}?theme=${discordTheme}`;
+  }
+  
+  if (spotifyIframe) {
+    spotifyIframe.src = `https://open.spotify.com/embed/playlist/${CONFIG.SPOTIFY_PLAYLIST_ID}?utm_source=generator&theme=${spotifyTheme}`;
+  }
 };
 
 /**
@@ -39,10 +44,10 @@ const updateEmbedThemes = (isDark) => {
 const setTheme = (isDark) => {
   if (isDark) {
     body.classList.add('dark-mode');
-    themeIcon.classList.replace('fa-moon', 'fa-sun');
+    if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
   } else {
     body.classList.remove('dark-mode');
-    themeIcon.classList.replace('fa-sun', 'fa-moon');
+    if (themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
   }
 
   localStorage.setItem('darkMode', isDark.toString());
@@ -53,19 +58,23 @@ const setTheme = (isDark) => {
 // INITIALIZATION
 // ==========================================================================
 const init = () => {
-  // 1. Cek preferensi tersimpan di LocalStorage
-  const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+  // 1. Cek preferensi tersimpan di LocalStorage (default to dark jika belum ada)
+  const savedDarkMode = localStorage.getItem('darkMode') !== 'false';
   setTheme(savedDarkMode);
 
   // 2. Set tahun footer secara otomatis
-  currentYearText.textContent = new Date().getFullYear();
+  if (currentYearText) {
+    currentYearText.textContent = new Date().getFullYear();
+  }
 
   // 3. Event Listener untuk tombol Dark Mode
-  darkModeToggle.addEventListener('click', () => {
-    const isCurrentlyDark = body.classList.contains('dark-mode');
-    setTheme(!isCurrentlyDark);
-  });
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+      const isCurrentlyDark = body.classList.contains('dark-mode');
+      setTheme(!isCurrentlyDark);
+    });
+  }
 };
 
 // Jalankan inisialisasi saat script dimuat
-init();
+document.addEventListener('DOMContentLoaded', init);
