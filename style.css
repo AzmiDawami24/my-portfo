@@ -1,560 +1,514 @@
-/* style.css */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #f4f7f6;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    padding: 20px 15px;
-    min-height: 100vh;
-    position: relative;
-    transition: background-color 0.3s, color 0.3s;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #121212;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-    width: 100%;
-    max-width: 840px;
-    padding-bottom: 90px;
+  width: 100%;
+  max-width: 480px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-header h1 {
-    color: #2c3e50;
-    margin-bottom: 6px;
-    font-size: 2.2rem;
-    transition: color 0.3s;
-}
-
-header p {
-    color: #7f8c8d;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-}
-
-/* --- Search Bar & Clear Button --- */
-.search-section {
-    margin-bottom: 25px;
-    position: relative;
-}
-
-.search-box {
-    display: flex;
-    gap: 8px;
-}
-
-.search-input-wrapper {
-    position: relative;
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-.search-input-wrapper input {
-    width: 100%;
-    padding: 12px 40px 12px 16px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.2s, background-color 0.3s, color 0.3s;
-    background: #fff;
-    color: #333;
-}
-
-.search-input-wrapper input:focus {
-    border-color: #3498db;
-}
-
-.search-input-wrapper input.input-error {
-    border-color: #e74c3c;
-}
-
-.clear-btn {
-    position: absolute;
-    right: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #95a5a6;
-    transition: color 0.2s, background-color 0.2s;
-}
-
-.clear-btn:hover {
-    color: #e74c3c;
-    background-color: #f1f2f6;
-}
-
-.clear-btn svg {
-    width: 16px;
-    height: 16px;
-}
-
-.search-box button#search-btn {
-    padding: 12px 24px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-}
-
-.search-box button#search-btn:hover:not(:disabled) {
-    background-color: #2980b9;
-}
-
-.search-box button#search-btn:disabled {
-    background-color: #bdc3c7;
-    color: #7f8c8d;
-    cursor: not-allowed;
-    opacity: 0.6;
-    box-shadow: none;
-}
-
-.error-msg {
-    color: #e74c3c;
-    font-size: 0.85rem;
-    margin-top: 6px;
-    display: none;
-    font-weight: 500;
-}
-
-.error-msg.visible {
-    display: block;
-}
-
-/* --- Grid Layout Counter --- */
-.counter-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 16px;
-}
-
-.counter-card {
-    background: white;
-    padding: 18px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #eef2f5;
-    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s, border-color 0.3s;
-}
-
-.counter-card:hover {
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-}
-
-.counter-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    gap: 8px;
-    margin-bottom: 12px;
-    min-height: 38px;
-}
-
-.counter-title-display {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #34495e;
-    text-align: left;
-    flex: 1;
-    word-break: break-word;
-    transition: color 0.3s;
-}
-
-.counter-title-input {
-    flex: 1;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 4px 8px;
-    border: 2px solid #3498db;
-    border-radius: 6px;
-    outline: none;
-    color: #2c3e50;
-    width: 100%;
-    background: #fff;
-}
-
-.counter-action-btns {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
-}
-
-.icon-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 6px;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s, transform 0.1s;
-}
-
-.icon-btn:active {
-    transform: scale(0.92);
-}
-
-.icon-btn svg {
-    width: 18px;
-    height: 18px;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.btn-edit svg { stroke: #7f8c8d; }
-.btn-edit:hover { background-color: #edf2f7; }
-.btn-edit:hover svg { stroke: #2c3e50; }
-
-.btn-delete svg { stroke: #e74c3c; }
-.btn-delete:hover { background-color: #fceae8; }
-
-.btn-save svg { stroke: #2ecc71; }
-.btn-save:hover { background-color: #e8f8f5; }
-
-.btn-cancel svg { stroke: #e74c3c; }
-.btn-cancel:hover { background-color: #fceae8; }
-
-.counter-value {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin: 10px 0 15px 0;
-    transition: color 0.3s;
-}
-
-.counter-controls {
-    display: flex;
-    gap: 8px;
-    width: 100%;
-}
-
-.btn {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.1s, opacity 0.2s;
-}
-
-.btn:active {
-    transform: scale(0.95);
-}
-
-.btn-decrement { background-color: #e74c3c; color: white; }
-.btn-reset { background-color: #95a5a6; color: white; font-size: 0.85rem; flex: 0.8; }
-.btn-increment { background-color: #2ecc71; color: white; }
-.btn:hover { opacity: 0.9; }
-
-.empty-state {
-    text-align: center;
-    padding: 40px 20px;
-    background: white;
-    border-radius: 12px;
-    border: 2px dashed #cbd5e1;
-    color: #64748b;
-    font-size: 1rem;
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* Floating Action Button Theme (Dark Mode) - Di Atas Tombol + */
-.fab-theme {
-    position: fixed;
-    bottom: 92px; /* Ditempatkan tepat di atas fab-add */
-    right: 25px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: #f1f2f6;
-    color: #2c3e50;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, background-color 0.3s, color 0.3s, box-shadow 0.2s;
-    z-index: 99;
-}
-
-.fab-theme:hover {
-    transform: scale(1.08);
-}
-
-.fab-theme:active {
-    transform: scale(0.95);
-}
-
-.fab-theme svg {
-    width: 22px;
-    height: 22px;
-}
-
-/* Kontrol Tampilan Ikon Sesuai Tema Active */
-.fab-theme .sun-icon { display: none; }
-.fab-theme .moon-icon { display: block; }
-
-body.dark-mode .fab-theme .sun-icon { display: block; color: #f1c40f; }
-body.dark-mode .fab-theme .moon-icon { display: none; }
-
-/* Floating Action Button (+) */
-.fab-add {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background-color: #3498db;
-    color: white;
-    font-size: 32px;
-    font-weight: 300;
-    border: none;
-    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.4);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-    z-index: 99;
-}
-
-.fab-add:hover {
-    background-color: #2980b9;
-    transform: scale(1.08);
-}
-
-.fab-add:active {
-    transform: scale(0.95);
-}
-
-/* --- Modal Base Layout --- */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.45);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 15px;
-    backdrop-filter: blur(4px);
-    animation: fadeIn 0.2s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.modal-card {
-    background: white;
-    padding: 24px;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    transform: translateY(0);
-    animation: slideUp 0.2s ease-out;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-@keyframes slideUp {
-    from { transform: translateY(15px); }
-    to { transform: translateY(0); }
-}
-
-.modal-card h3 {
-    color: #2c3e50;
-    margin-bottom: 8px;
-    transition: color 0.3s;
-}
-
-.modal-card p {
-    color: #64748b;
-    font-size: 0.95rem;
-    margin-bottom: 16px;
-    line-height: 1.4;
-    transition: color 0.3s;
-}
-
-.modal-card input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
-    transition: background-color 0.3s, color 0.3s, border-color 0.2s;
-}
-
-.modal-card input:focus {
-    border-color: #3498db;
-}
-
-.modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.modal-actions button {
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.2s;
-}
-
-.btn-modal-cancel { background: #edf2f7; color: #4a5568; }
-.btn-modal-cancel:hover { background: #e2e8f0; }
-.btn-modal-save { background: #3498db; color: white; }
-.btn-modal-save:hover { background: #2980b9; }
-
-/* Custom Action Styles for Confirm Modal */
-.btn-modal-danger { background: #e74c3c; color: white; }
-.btn-modal-danger:hover { background: #c0392b; }
-
-.confirm-single-btn #confirm-cancel-btn {
-    display: none;
-}
-
-/* --- DARK MODE OVERRIDES --- */
+/* ==========================================================================
+   2. TEMA MODE GELAP (Dark Mode Base)
+   ========================================================================== */
 body.dark-mode {
-    background-color: #12181b;
-    color: #e0e6ed;
+  background-color: #121212;
+  color: #e0e0e0;
 }
 
-body.dark-mode header h1 {
-    color: #ecf0f1;
+body.dark-mode #themeIcon {
+  color: darkorange;
 }
 
-body.dark-mode header p {
-    color: #95a5a6;
+/* ==========================================================================
+   3. TOMBOL MELAYANG (Floating Action Buttons)
+   ========================================================================== */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
 }
 
-body.dark-mode .search-input-wrapper input {
-    background-color: #1e272e;
-    border-color: #34495e;
-    color: #ecf0f1;
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #f0f0f0;
+  border: 2px solid #222222;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 22px;
+  color: #222222;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
-body.dark-mode .clear-btn:hover {
-    background-color: #2c3e50;
+.action-btn:hover {
+  transform: translateY(-2px);
+  background-color: #e0e0e0;
 }
 
-body.dark-mode .counter-card {
-    background-color: #1e272e;
-    border-color: #2c3e50;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+body.dark-mode .action-btn {
+  background-color: #2a2a2a;
+  border-color: #444444;
+  color: #ffffff;
 }
 
-body.dark-mode .counter-title-display {
-    color: #ecf0f1;
+body.dark-mode .action-btn:hover {
+  background-color: #383838;
 }
 
-body.dark-mode .counter-title-input {
-    background-color: #2c3e50;
-    color: #ecf0f1;
+/* ==========================================================================
+   4. HEADER PROFIL & LOGO
+   ========================================================================== */
+.profile-header {
+  text-align: center;
 }
 
-body.dark-mode .counter-value {
-    color: #3498db;
+.logo img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: #000000;
+  padding: 6px;
+  margin-bottom: 12px;
 }
 
-body.dark-mode .empty-state {
-    background-color: #1e272e;
-    border-color: #34495e;
-    color: #95a5a6;
+h1 {
+  font-size: 1.4em;
+  font-weight: bold;
 }
 
-body.dark-mode .fab-theme {
-    background-color: #2c3e50;
-    color: #f1c40f;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+.name {
+  color: #6c7eff;
 }
 
-body.dark-mode .modal-card {
-    background-color: #1e272e;
+body.dark-mode .name {
+  color: #7082fa;
 }
 
-body.dark-mode .modal-card h3 {
-    color: #ecf0f1;
+/* ==========================================================================
+   5. SEKSI UTAMA
+   ========================================================================== */
+.section {
+  width: 100%;
+  text-align: center;
 }
 
-body.dark-mode .modal-card p {
-    color: #bdc3c7;
+h2 {
+  font-size: 1.1em;
+  margin-bottom: 16px;
 }
 
-body.dark-mode .modal-card input {
-    background-color: #2c3e50;
-    border-color: #34495e;
-    color: #ecf0f1;
+/* ==========================================================================
+   6. PROJECT CARD COMPONENT (DARK MODE DEFAULT)
+   ========================================================================== */
+.project-card {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  background-color: #121418;
+  border: 1px solid #22262f;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #e5e7eb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
 }
 
-body.dark-mode .btn-modal-cancel {
-    background-color: #34495e;
-    color: #ecf0f1;
+.project-card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-4px);
 }
 
-body.dark-mode .btn-modal-cancel:hover {
-    background-color: #2c3e50;
+.card-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: #0b0c0e;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #1f242d;
 }
 
-body.dark-mode .btn-edit:hover {
-    background-color: #2c3e50;
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-body.dark-mode .btn-edit:hover svg {
-    stroke: #ecf0f1;
+.project-card:hover .preview-img {
+  transform: scale(1.03);
 }
 
-/* Mobile Media Queries */
-@media (max-width: 480px) {
-    body { padding: 15px 10px; }
-    header h1 { font-size: 1.8rem; }
-    header p { font-size: 0.85rem; }
-    .counter-grid { grid-template-columns: 1fr; }
-    .fab-add { bottom: 20px; right: 20px; width: 52px; height: 52px; font-size: 28px; }
-    .fab-theme { bottom: 82px; right: 22px; width: 44px; height: 44px; }
-    .search-box button#search-btn { padding: 12px 16px; }
+.badge-in-progress {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background-color: rgba(18, 20, 24, 0.85);
+  border: 1px solid #2d323e;
+  border-radius: 20px;
+  color: #f59e0b;
+  font-size: 0.75rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #f59e0b;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.category-year {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.external-link {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.external-link:hover {
+  color: #3b82f6;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  background-color: #1a1d24;
+  color: #9ca3af;
+  border: 1px solid #2d323e;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.card-action {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Memberi jarak antara tombol baru dan tombol View Project */
+}
+
+.project-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  background-color: #161a22;
+  border: 1px solid #2a303c;
+  border-radius: 8px;
+  color: #3b82f6; /* Warna biru terang saat Dark Mode */
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.project-btn:hover {
+  cursor: pointer;
+  background-color: #202632;
+  border-color: #3b82f6;
+  opacity: 1;
+}
+
+/* Aturan tombol nonaktif
+.project-btn.disabled {
+  pointer-events: none; /* Mematikan semua aksi klik/sentuhan 
+  cursor: not-allowed;  /* Menampilkan ikon dilarang 
+  opacity: 0.6;         /* Membuat tampilan agak redup 
+} */
+
+/* ==========================================================================
+   7. PROJECT CARD LIGHT MODE STYLES
+   ========================================================================== */
+body:not(.dark-mode) .project-card {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+  color: #1f2937;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body:not(.dark-mode) .project-card:hover {
+  border-color: #2563eb;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+body:not(.dark-mode) .card-preview {
+  background-color: #f3f4f6;
+  border-bottom-color: #e5e7eb;
+}
+
+body:not(.dark-mode) .card-title {
+  color: #111827;
+}
+
+body:not(.dark-mode) .category-year,
+body:not(.dark-mode) .card-description,
+body:not(.dark-mode) .external-link {
+  color: #6b7280;
+}
+
+body:not(.dark-mode) .external-link:hover {
+  color: #2563eb;
+}
+
+body:not(.dark-mode) .tag {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-color: #e5e7eb;
+}
+
+body:not(.dark-mode) .project-btn {
+  background-color: #f3f4f6;
+  border-color: #e5e7eb;
+  color: #2563eb; /* Warna biru saat Light Mode */
+}
+
+/* Untuk Mode Terang (Light Mode) */
+body:not(.dark-mode) .project-btn:hover {
+  cursor: pointer;
+  background-color: #e5e7eb;
+  border-color: #2563eb;
+  opacity: 1;
+}
+
+body:not(.dark-mode) .badge-in-progress {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: #fde68a;
+  color: #d97706;
+}
+
+body:not(.dark-mode) .badge-dot {
+  background-color: #d97706;
+}
+
+/* ==========================================================================
+   8. TOMBOL TOKO & SOSIAL MEDIA
+   ========================================================================== */
+.shop-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 280px;
+  padding: 12px 20px;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #222222;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.shop-btn:hover {
+  background-color: #f0f0f0;
+}
+
+body.dark-mode .shop-btn {
+  background-color: #222222;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+body.dark-mode .shop-btn:hover {
+  background-color: #333333;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.15);
+}
+
+.fa-spotify { color: #1db954; }
+.fa-github { color: #333333; }
+.fa-discord { color: #5865f2; }
+.fa-instagram { color: #c13584; }
+.fa-tiktok { color: #000000; }
+.fa-twitter { color: #1da1f2; }
+.fa-facebook { color: #1877f2; }
+.fa-pinterest { color: #e60023; }
+.fa-youtube { color: #ff0000; }
+
+body.dark-mode .fa-github,
+body.dark-mode .fa-tiktok {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   9. EMBED WIDGET (DISCORD & SPOTIFY)
+   ========================================================================== */
+.embed-card {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+body.dark-mode .embed-card {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.embed-card iframe {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+#discord-embed {
+  height: 220px;
+}
+
+#spotify-embed {
+  height: 380px;
+}
+
+/* ==========================================================================
+   10. SAWERIA & FOOTER
+   ========================================================================== */
+.saweria {
+  font-size: 0.95em;
+  text-align: center;
+}
+
+.saweria a {
+  color: #ff8c00;
+  font-weight: bold;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 0.85em;
+  color: darkslategray;
+}
+
+body.dark-mode .footer {
+  color: #888888;
+}
+
+/* ==========================================================================
+   11. MEDIA QUERIES
+   ========================================================================== */
+@media screen and (min-width: 600px) {
+  .container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .logo img {
+    width: 130px;
+    height: 130px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .floating-buttons {
+    bottom: 30px;
+    right: 30px;
+  }
 }
