@@ -1,284 +1,96 @@
-<!doctype html>
+<!-- index.html -->
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Azmi A. Dawami - Personal Website</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter (without) Strike</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <!-- Meta Tag SEO & Social Media Preview -->
-    <meta
-      name="description"
-      content="Website personal dan tautan media sosial resmi Azmi A. Dawami."
-    />
-    <meta property="og:title" content="Azmi A. Dawami" />
-    <meta
-      property="og:description"
-      content="Temukan media sosial, toko online, dan aktivitas Discord/Spotify saya di sini."
-    />
-    <meta property="og:image" content="Logo_Rev.png" />
-    <meta property="og:type" content="website" />
-
-    <!-- Style Sheets & FontAwesome Icons -->
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
-
-  <body>
-    <!-- Container Utama -->
     <div class="container">
-      <!-- Tombol Aksi Melayang (Email & Dark Mode Toggle) -->
-      <div class="floating-buttons">
-        <a
-          href="mailto:azmidawami@gmail.com"
-          class="action-btn"
-          aria-label="Kirim Email"
-        >
-          <i class="fas fa-envelope" id="emailIcon"></i>
-        </a>
-        <button
-          class="action-btn"
-          id="darkModeToggle"
-          aria-label="Ubah Tema Mode Gelap/Terang"
-        >
-          <i id="themeIcon" class="fas fa-moon"></i>
-        </button>
-      </div>
+        <header>
+            <h1>Counter (without) Strike</h1>
+            <p>Bukan nama game, melainkan aplikasi penghitung sederhana.</p>
+        </header>
 
-      <!-- Header Profil -->
-      <header class="profile-header">
-        <div class="logo">
-          <img src="Logo_Rev.png" alt="Logo Azmi A. Dawami" />
+        <!-- Bar Pencarian -->
+        <div class="search-section">
+            <div class="search-box">
+                <div class="search-input-wrapper">
+                    <input type="text" id="search-input" placeholder="Cari nama counter..." autocomplete="off">
+                    <!-- Tombol Silang untuk Clear Search -->
+                    <button id="clear-search-btn" class="clear-btn hidden" title="Bersihkan pencarian">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <button id="search-btn" disabled>Cari</button>
+            </div>
+            <div id="search-error" class="error-msg">Kolom pencarian harus diisi!</div>
         </div>
-        <h1>Hello! I'm <span class="name">Azmi A. Dawami!</span></h1>
-      </header>
 
-      <!-- Bagian Project -->
-      <section class="section">
-        <h2>My Projects</h2>
+        <!-- Wadah Daftar Counter -->
+        <div id="counter-list" class="counter-grid"></div>
 
-        <!-- Project Card Component -->
-        <article class="project-card">
-          <!-- Pratinjau Gambar -->
-          <div class="card-preview">
-            <!-- <span class="badge-in-progress">
-              <span class="badge-dot"></span>
-              In Progress
-            </span> -->
-            <img
-              src="image.png"
-              alt=""
-              class="preview-img"
-              loading="lazy"
-            />
-          </div>
-
-          <!-- Konten Kartu -->
-          <div class="card-body">
-            <div class="card-meta">
-              <!-- <span class="category-year">Full-stack platform &bull; 2026</span> -->
-              <a
-                href="#"
-                class="external-link"
-                aria-label="Buka tautan proyek"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <!-- <i class="fas fa-arrow-up-right-from-square"></i> -->
-              </a>
-            </div>
-
-            <h3 class="card-title">Counter (without) Strike</h3>
-            <p class="card-description">
-              A minimalist counter web application designed for simple tallying directly in the browser.
-            </p>
-
-            <div class="tags-container">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
-            </div>
-
-            <div class="card-action">
-              <!-- 1. Tombol aksi baru yang berada di atas View Project -->
-              <a
-                href="https://azmidawami.github.io/Counter-without-Strike/"
-                class="project-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="fab fa-github"></i>
-                <span>View on GitHub</span>
-              </a>
-
-              <!-- 2. Tombol View Project yang sudah diberi link & diaktifkan -->
-              <a
-                href="https://azmidawami.github.io/Counter-without-Strike/"
-                class="project-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="fas fa-arrow-up-right-from-square"></i>
-                <span>View project</span>
-              </a>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- Bagian Toko / Shop -->
-      <section class="section">
-        <h2>Check out my shop</h2>
-        <a
-          href="https://lynk.id/azmidawami"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="shop-btn"
-        >
-          <i class="fas fa-shop"></i>
-          <span>Click here!</span>
-        </a>
-      </section>
-
-      <!-- Bagian Tautan Media Sosial -->
-      <section class="section">
-        <h2>Check out my social media</h2>
-        <ul class="social-links">
-          <li>
-            <a
-              href="https://open.spotify.com/user/chxf415esfxfnuq660t5pgl9c?si=d4fed82a4a084910"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Spotify"
-              ><i class="fab fa-spotify fa-2x"></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/AzmiDawami"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              ><i class="fab fa-github fa-2x"></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://discord.com/users/722083917724647506"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Discord"
-              ><i class="fab fa-discord fa-2x"></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://instagram.com/azmidawami"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              ><i class="fab fa-instagram fa-2x"></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://www.tiktok.com/@azmdwm"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TikTok"
-              ><i class="fab fa-tiktok fa-2x"></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://x.com/AzmiDawami"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter / X"
-              ><i class="fab fa-twitter fa-2x"></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://www.facebook.com/azmi.a.dawami/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              ><i class="fab fa-facebook fa-2x"></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://pin.it/7DCJ2Vpnj"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Pinterest"
-              ><i class="fab fa-pinterest fa-2x"></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://www.youtube.com/@dewelogy.gaming"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-              ><i class="fab fa-youtube fa-2x"></i
-            ></a>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Integrasi Widget Discord -->
-      <section class="embed-card">
-        <h2>My Discord activities</h2>
-        <iframe
-          id="discord-embed"
-          allowtransparency="true"
-          loading="lazy"
-          title="Status Aktivitas Discord"
-        ></iframe>
-      </section>
-
-      <!-- Integrasi Widget Spotify -->
-      <section class="embed-card">
-        <h2>Check out my Spotify playlist! 🎵</h2>
-        <iframe
-          id="spotify-embed"
-          allow="
-            autoplay;
-            clipboard-write;
-            encrypted-media;
-            fullscreen;
-            picture-in-picture;
-          "
-          loading="lazy"
-          title="Pemutar Musik Spotify"
-        ></iframe>
-      </section>
-
-      <!-- Dukungan Saweria & Footer -->
-      <p class="saweria">
-        You can also support me on
-        <a
-          href="https://saweria.co/azmidawami"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Saweria!</a
-        >
-      </p>
-
-      <footer class="footer">
-        <p>&copy; <span id="currentYear"></span> | Made by Azmi A. Dawami</p>
-      </footer>
+        <!-- Pesan Kosong / Tidak Ditemukan -->
+        <div id="empty-state" class="empty-state hidden">
+            <p id="empty-state-text">Belum ada counter. Klik tombol + di pojok kanan bawah untuk menambah!</p>
+        </div>
     </div>
 
-    <!-- Script Logika -->
+    <!-- Tombol Dark/Light Mode Theme Floating di Atas Tombol + -->
+    <button id="fab-theme" class="fab-theme" title="Ubah Mode Tema">
+        <!-- Ikon Matahari (muncul saat Dark Mode aktif untuk pindah ke Light Mode) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Ikon Bulan (muncul saat Light Mode aktif untuk pindah ke Dark Mode) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <!-- Tombol Floating Action Button (+) di Pojok Kanan Bawah -->
+    <button id="fab-add" class="fab-add" title="Tambah Counter Baru">+</button>
+
+    <!-- Modal Form Tambah Counter Baru -->
+    <div id="add-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <h3>Tambah Counter Baru</h3>
+            <p>Masukkan nama counter yang ingin Anda buat:</p>
+            <input type="text" id="modal-title-input" placeholder="Misal: Gelas Kopi Hari Ini..." maxlength="30" autocomplete="off">
+            <div id="modal-error" class="error-msg">Nama counter tidak boleh kosong!</div>
+            <div class="modal-actions">
+                <button id="modal-cancel-btn" class="btn-modal-cancel">Batal</button>
+                <button id="modal-save-btn" class="btn-modal-save">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Konfirmasi Custom -->
+    <div id="confirm-modal" class="modal-overlay hidden">
+        <div class="modal-card confirm-card">
+            <h3 id="confirm-title">Konfirmasi</h3>
+            <p id="confirm-message">Apakah Anda yakin?</p>
+            <div class="modal-actions">
+                <button id="confirm-cancel-btn" class="btn-modal-cancel">Batal</button>
+                <button id="confirm-ok-btn" class="btn-modal-danger">Ya, Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
