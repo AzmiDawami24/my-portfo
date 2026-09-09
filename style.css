@@ -264,10 +264,11 @@ h2 {
   white-space: nowrap;
 }
 
-/* Memastikan kursor dilarang tetap muncul di pembungkusnya saat hover */
 .card-action {
   width: 100%;
-  cursor: not-allowed;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Memberi jarak antara tombol baru dan tombol View Project */
 }
 
 .project-btn {
@@ -288,18 +289,18 @@ h2 {
 }
 
 .project-btn:hover {
-  cursor: not-allowed;
-  opacity: 0.6; /* Membuat tombol agak samar agar terkesan tidak aktif */
-  background-color: #161a22; /* Menjaga warna background tidak berubah terang */
-  border-color: #2a303c;
+  cursor: pointer;
+  background-color: #202632;
+  border-color: #3b82f6;
+  opacity: 1;
 }
 
-/* Aturan tombol nonaktif */
+/* Aturan tombol nonaktif
 .project-btn.disabled {
-  pointer-events: none; /* Mematikan semua aksi klik/sentuhan */
-  cursor: not-allowed;  /* Menampilkan ikon dilarang */
-  opacity: 0.6;         /* Membuat tampilan agak redup */
-}
+  pointer-events: none; /* Mematikan semua aksi klik/sentuhan 
+  cursor: not-allowed;  /* Menampilkan ikon dilarang 
+  opacity: 0.6;         /* Membuat tampilan agak redup 
+} */
 
 /* ==========================================================================
    7. PROJECT CARD LIGHT MODE STYLES
@@ -349,10 +350,10 @@ body:not(.dark-mode) .project-btn {
 
 /* Untuk Mode Terang (Light Mode) */
 body:not(.dark-mode) .project-btn:hover {
-  cursor: not-allowed;
-  opacity: 0.6;
-  background-color: #f3f4f6;
-  border-color: #e5e7eb;
+  cursor: pointer;
+  background-color: #e5e7eb;
+  border-color: #2563eb;
+  opacity: 1;
 }
 
 body:not(.dark-mode) .badge-in-progress {
